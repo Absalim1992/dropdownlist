@@ -29,8 +29,8 @@ public class StateDAOImpl implements StateDAO{
 		try {
 			System.out.println("In Try Block");
 			transaction = session.beginTransaction();
-			//stateEntities = session.createQuery("select s.id as id, s.name as name from state s where country.id = :countryId")
-			stateEntities = session.createQuery("select s.id, s.name from state s where s.countryId = :countryId")
+			stateEntities = session.createQuery("select s.id as id, s.name as name from state s where country.id = :countryId")
+			//stateEntities = session.createQuery("select s.id, s.name from state s where s.countryId = :countryId")
 					.setInteger("countryId", countryId)
 					.setResultTransformer(Transformers.aliasToBean(StateEntity.class))
 					.list();
